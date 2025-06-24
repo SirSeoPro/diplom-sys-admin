@@ -156,7 +156,7 @@ curl -v 84.252.135.227:80
 ![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/grafana/grafana.png) </br>
 ![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/grafana/grafana2.png) </br>
 ![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/grafana/grafana3.png) </br>
-![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/grafana/grafana4.png) </br>
+![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/grafana/grafana-4.png) </br>
 
 ## Kibana & Elasticsearch
 
