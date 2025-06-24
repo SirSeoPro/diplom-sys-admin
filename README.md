@@ -117,7 +117,7 @@ yes
 ```
 
 
-Результат:
+Результат: </br>
 ![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/tf/terraform-apply.png)
 
 Проверяем доступность всех хостов:
@@ -133,7 +133,11 @@ ansible -i inventory.ini -m ping all
 ```
 ansible-playbook site.yml
 ```
-![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/ansible/playbook.png)
+![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/ansible/playbook.png) </br>
+
+В файле inventory.ini Для Ansible использовались .fqdn 
+
+![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/ansible/fqdn.png) </br>
 
 #12312431
 Тестируем сайт с помощью команды и получаем результат:
