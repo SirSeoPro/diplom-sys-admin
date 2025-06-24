@@ -149,7 +149,7 @@ ansible-playbook site.yml
 curl -v 84.252.135.227:80
 ```
 
-![image](![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/curl.png) </br> 
+![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/curl.png) </br> 
 
 ## Grafana
 
