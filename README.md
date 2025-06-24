@@ -143,8 +143,7 @@ ansible-playbook site.yml
 
 ![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/ansible/fqdn.png) </br>
 
-#12312431
-Тестируем сайт с помощью команды и получаем результат:
+Проверим сайт, выполнив команду curl:
 
 ```
 curl -v 84.252.135.227:80
