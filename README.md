@@ -118,7 +118,7 @@ yes
 
 
 Результат:
-[img/1.jpg](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/tf/terraform-apply.png)"
+![image3](https://github.com/SirSeoPro/09-02-zabbix/blob/main/img/1-3.png)
 
 Проверяем доступность всех хостов:
 ```
