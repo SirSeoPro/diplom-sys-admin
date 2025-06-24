@@ -1,0 +1,74 @@
+---
+- name: Установка зависимостей
+  apt:
+    name: wget
+    state: present
+
+- name: Создание пользователя prometheus
+  user:
+    name: prometheus
+    system: yes
+    shell: /usr/sbin/nologin
+
+- name: Создание директорий
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: prometheus
+    group: prometheus
+  loop:
+    - /etc/prometheus
+    - /var/lib/prometheus
+    - /usr/local/bin/prometheus
+
+- name: Загрузка Prometheus
+  unarchive:
+    src: "https://github.com/prometheus/prometheus/releases/download/v{{ prometheus_version }}/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz"
+    dest: /tmp
+    remote_src: yes
+    extra_opts: ["--strip-components=1"]
+    creates: "/tmp/prometheus"
+
+- name: Копирование исполняемых файлов
+  copy:
+    remote_src: yes
+    src: "/tmp/prometheus"
+    dest: "/usr/local/bin/prometheus/"
+    owner: prometheus
+    group: prometheus
+    mode: '0755'
+
+- name: Копирование конфигурации
+  template:
+    src: prometheus.yml.j2
+    dest: /etc/prometheus/prometheus.yml
+    owner: prometheus
+    group: prometheus
+    mode: '0644'
+
+- name: Настройка systemd службы
+  template:
+    src: prometheus.service.j2
+    dest: /etc/systemd/system/prometheus.service
+    mode: '0644'
+
+- name: Перезагрузка systemd
+  systemd:
+    daemon_reload: yes
+
+- name: Запуск Prometheus
+  systemd:
+    name: prometheus
+    state: started
+    enabled: yes
+
+- name: Проверка работы Prometheus
+  uri:
+    url: "http://localhost:9090/-/healthy"
+    method: GET
+    status_code: 200
+    timeout: 10
+  register: prometheus_health
+  until: prometheus_health.status == 200
+  retries: 5
+  delay: 5

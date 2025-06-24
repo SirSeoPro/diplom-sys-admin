@@ -1,0 +1,23 @@
+---
+# Для production лучше использовать ansible-vault
+prometheus_url: "http://prometheus:9090"
+
+grafana_provisioning_dir: "/etc/grafana/provisioning"
+grafana_admin_user: "admin"
+grafana_admin_password: "passwbars"
+grafana_url: "http://localhost:3000"
+node_exporter_dashboard_json: "https://grafana.com/api/dashboards/1860/revisions/28/download"  # ID стандартного дашборда Node-Exporter
+nginx_exporter: "https://grafana.com/api/dashboards/12708/revisions/latest/download"
+
+# Docker образ Grafana
+grafana_image: grafana/grafana-oss
+grafana_version: latest
+grafana_container_name: grafana
+grafana_restart_policy: unless-stopped
+
+# Порт Grafana
+grafana_port: 3000
+
+# Директории
+grafana_data_dir: /var/lib/grafana
+grafana_config_dir: /etc/grafana

@@ -1,0 +1,39 @@
+---
+- hosts: webservers_gp
+  become: yes
+  roles:
+    - webserver
+    - filebeat
+  tags: 'webservers'
+
+
+- hosts: prometheus_gp
+  become: yes
+  roles:
+    - prometheus
+  tags: 'prometheus'
+
+
+- hosts: grafana_gp
+  become: yes
+  roles:
+    - grafana
+  tags: 'grafana'
+
+
+- hosts: elasticsearch_gp
+  become: yes
+  roles:
+    - elasticsearch
+  tags: 'elasticsearch'
+
+
+- hosts: kibana_gp
+  become: yes
+  roles:
+    - kibana
+  tags: 'kibana'
+
+
+  vars_files:
+    - /home/ivon/diplom3/ansible/vars.yml
