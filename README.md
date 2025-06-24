@@ -103,8 +103,8 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ## РЕШЕНИЕ
 
-В каталоге 
-https://github.com/SirSeoPro/diplom-sys-admin/tree/main/project
+В каталоге </br>
+https://github.com/SirSeoPro/diplom-sys-admin/tree/main/project </br>
 Содержатся конфигурационные файлы terraform и ansible которые использовались в работе.
 
 При развертке Terraform на бастион хост устанавливается Ansible и копируется приватный ssh ключ.
@@ -118,13 +118,14 @@ yes
 
 
 Результат:
-![image3](https://github.com/SirSeoPro/09-02-zabbix/blob/main/img/1-3.png)
+![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/tf/terraform-apply.png)
 
 Проверяем доступность всех хостов:
+
 ```
 ansible -i inventory.ini -m ping all
 ```
-<img src = "img/3.jpg" width = 100%>
+![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/ansible/ansible-ping-all.png)
 
 
 Запускаем playbook всех необходимых компонентов с помощью ansible:
@@ -132,24 +133,9 @@ ansible -i inventory.ini -m ping all
 ```
 ansible-playbook site.yml
 ```
-<img src = "img/4.jpg" width = 100%>
+![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/ansible/playbook.png)
 
-* Target Group:
-
-<img src = "img/5.jpg" width = 100%>
-
-* Backend Group:
-
-<img src = "img/6.jpg" width = 100%>
-
-* HTTP router:
-
-<img src = "img/7.jpg" width = 100%>
-
-* Application load balancer:
-
-<img src = "img/8.jpg" width = 100%>
-
+#12312431
 Тестируем сайт с помощью команды и получаем результат:
 
 ```
