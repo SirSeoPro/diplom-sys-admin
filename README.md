@@ -120,6 +120,10 @@ yes
 Результат: </br>
 ![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/tf/terraform-apply.png)
 
+Проверим, что видим в личном кабинете Я.Облака </br>
+
+![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/web.png)
+
 Проверяем доступность всех хостов:
 
 ```
@@ -143,33 +147,26 @@ ansible-playbook site.yml
 Тестируем сайт с помощью команды и получаем результат:
 
 ```
-curl -v 158.160.163.77:80
+curl -v 84.252.135.227:80
 ```
 
-<img src = "img/9.jpg" width = 100%>
-<img src = "img/10.jpg" width = 100%>
+![image](![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/ansible/fqdn.png) </br> 
 
-## Мониториг
+## Grafana
 
-[Grafana](http://84.201.176.224:3000)
+![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/grafana/grafana.png) </br>
+![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/grafana/grafana2.png) </br>
+![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/grafana/grafana3.png) </br>
+![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/grafana/grafana4.png) </br>
 
-Логин/пароль
-admin/passwbars
-
-<img src = "img/11.jpg" width = 100%>
-<img src = "img/12.jpg" width = 100%>
-<img src = "img/13.jpg" width = 100%>
-<img src = "img/14.jpg" width = 100%>
-
-## Логирование
+## Kibana & Elasticsearch
 
 На созданные ВМ с помощью ansible разворачиваются Kibana, Elasticsearch и автоматически конфигурируются на приём данных от filebeat на веб-серверах
 
-[Логирование](http://51.250.84.147:5601/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:60000),time:(from:now-15m,to:now))&_a=(columns:!(),dataSource:(dataViewId:discover-observability-solution-all-logs,type:dataView),filters:!(),interval:auto,query:(language:kuery,query:''),sort:!(!('@timestamp',desc))))
+![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/kibana/1.png) </br>
+![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/kibana/2.png) </br>
 
-<img src = "img/15.jpg" width = 100%>
-
-## Сеть
+## Network
 
 Terraform настраивает Security Groups соответствующих сервисов на входящий трафик только к нужным портам.
 
@@ -177,20 +174,16 @@ Terraform настраивает Security Groups соответствующих 
 
 Получаем список сетей и security groups:
 
-<img src = "img/16.jpg" width = 100%>
-<img src = "img/17.jpg" width = 100%>
-<img src = "img/18.jpg" width = 100%>
+![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/network/1.png) </br>
+![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/network/2.png) </br>
+![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/network/3.png) </br>
+![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/network/4.png) </br>
+![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/network/5.png) </br>
 
 
-### Резервное копирование
-Создал snapshot дисков всех ВМ. Ограничил время жизни snaphot в неделю. Сами snaphot настроил на ежедневное копирование.
+### Snapshots
+Snapshot создаются для дисков всех ВМ. </br>
+Выставленное ограничение жизни - неделя. </br>
+Снимки происходят ежедневно. </br>
 
-<img src = "img/19.jpg" width = 100%>
-
-
-
-### P.S.
-
-В файле inventory.ini Для Ansible использовались .fqdn 
-
-<img src = "img/20.jpg" width = 100%>
+![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/snapshots.png) </br>
