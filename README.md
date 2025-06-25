@@ -154,8 +154,8 @@ curl -v 84.252.135.227:80
 ## Grafana
 Данные для авторизации: </br>
 ```
-ivon </br>
-I\/0N7250937 </br>
+ivon
+I\/0N7250937
 ```
 
 ![image](https://github.com/SirSeoPro/diplom-sys-admin/blob/main/images/grafana/grafana.png) </br>
